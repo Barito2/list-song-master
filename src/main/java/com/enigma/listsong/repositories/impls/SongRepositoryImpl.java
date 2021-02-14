@@ -25,7 +25,7 @@ public class SongRepositoryImpl implements SongRepository {
             "(name, year, singer_id, genre_id) " +
             "VALUES(?, ?, ?, ?)";
 
-    private final String UPDATE_SINGER = "UPDATE singer SET " +
+    private final String UPDATE_SINGER = "UPDATE song SET " +
             "name = ?, year = ?, singer_id = ?, genre_id = ? WHERE id = ?";
 
     private final String DELETE_SINGER = "DELETE FROM song WHERE id = ?";
@@ -49,7 +49,7 @@ public class SongRepositoryImpl implements SongRepository {
 
     @Override
     public boolean update(SongModel singer) {
-        return jdbcTemplate.update(UPDATE_SINGER, singer.getName(), singer.getYear(),singer.getName(), singer.getSingerId(), singer.getGenreId(), singer.getId()) > 0;
+        return jdbcTemplate.update(UPDATE_SINGER, singer.getName(), singer.getYear(), singer.getSingerId(), singer.getGenreId(), singer.getId()) > 0;
     }
 
     @Override
